@@ -1,14 +1,17 @@
 import { Text, TextInput, View } from "react-native";
 
-export function Input(props){
+export function Input({value,onChangeText, onBlur, security=false, placeholder, label}) {
     return (
         <View>
             <Text style={{
                 fontSize: 14,
                 fontWeight: "700"
-            }}>{props.label}</Text>
+            }}>{label}</Text>
             <TextInput
-            secureTextEntry = {true}
+            onChangeText={onChangeText}
+            onBlue={onBlur}
+            value={value}
+            secureTextEntry = {security}
             style={{
                 borderWidth: 1,
                 borderColor: "#D7D6DD",
@@ -17,7 +20,8 @@ export function Input(props){
                 marginTop: 8,
                 marginBottom: 16,
                 borderRadius: 8
-            }} placeholder={props.placeholder}/>
+            }} placeholder={placeholder}
+            />
         </View>
     )
 }
